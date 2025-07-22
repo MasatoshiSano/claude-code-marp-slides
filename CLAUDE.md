@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 このファイルは、本プロジェクトでClaudeを運用するためのガイドラインです。
 
 ## 1. 基本原則 (General Principles)
@@ -24,13 +26,13 @@
 -   `rm`コマンドを使用する際は、必ず事前にユーザーの確認を取る。
 -   削除対象のファイル/フォルダを明示し、削除の影響を説明する。
 
-### 1.5. GitHub への変更反映
--   **重要**: ファイルを変更した後は必ずGitHubにプッシュする。
+### 1.5. 変更の記録
+-   **重要**: ファイルを変更した後はローカルにコミットして変更履歴を管理する。
 -   **プロセス**:
     1.  `git add -A` で全変更をステージング
     2.  `git commit -m "説明的なコミットメッセージ"` でコミット
-    3.  `git push` でGitHubに反映
 -   **コミットメッセージ**: 変更内容を明確に記載
+-   **注意**: GitHubへのプッシュは自動では実行しない
 
 ## Project Purpose
 
@@ -160,6 +162,9 @@ claude-code-marp-slides/
 
 ### 4.1. 新規プレゼンテーション作成時
 ```bash
+# 0. Marp CLIが利用可能か確認
+which marp || npm list -g @marp-team/marp-cli
+
 # 1. 01_ドラフトで内容作成
 Edit 01_ドラフト/スライド作成手順.md
 
@@ -200,3 +205,4 @@ marp 02_Marp/スライド作成手順.md --pptx --output 03_Export/PPTX/スラ�
 - `スライド生成手順/`ディレクトリ内のファイルのみに集中
 - ObsidianとMarpの両方でレンダリングできるMarkdownを維持
 - コミット時は変更内容を明確に記載
+- **重要**: GitHubへのプッシュは自動では実行しない（ローカルコミットのみ）
