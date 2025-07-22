@@ -199,6 +199,68 @@ marp 02_Marp/スライド作成手順.md --pptx --output 03_Export/PPTX/スラ�
 
 **重要**: PPTXはテキストが画像として埋め込まれます。編集が必要な場合は、Web版Marp Editor（https://marpwebeditor.app/）にMarpファイルの内容をコピー＆ペーストして編集してください。
 
+### 4.4. 背景・画像挿入のルール
+背景や画像を挿入する場合は、以下の形式に従ってください：
+
+#### 全面背景画像（brightness調整付き）
+```markdown
+---
+marp: true
+theme: uncover
+---
+<!--
+_color: white
+_footer: 'Photo by Benjamin Rascoe on Unsplash'
+-->
+
+![bg brightness:0.6](benjamin-rascoe-JS6PY31e2P0-unsplash.jpg)
+
+# タイトル全面背景
+
+Brightnessを落とし、文字の視認性を上げました
+```
+
+#### 左右分割配置
+```markdown
+---
+<!--
+_footer: 'Photo by Michal Vasko　on Unsplash'
+paginate: true
+-->
+
+![bg left:40%](michal-vasko-GOfQNTI_9Og-unsplash.jpg)
+
+### 左に画像をいれる
+
+- 表示場所、比率を指定する
+- 次頁では、複数画像を並べます
+- footerで画像クレジット表示も
+```
+
+#### 複数画像の組み合わせ
+```markdown
+---
+<!--
+_backgroundColor: white
+_footer: 'Photo by Chris Campbell, Dan on Unsplash'
+-->
+
+![bg right:60% contrast:1.5 brightness:1.2](christopher-campbell-rDEOVtE7vOs-unsplash.jpg)
+![bg 350% contrast:1.2 brightness:1](dan-ROJFuWCsfmA-unsplash.jpg)
+
+# 進め、
+#### 新しいわたし。
+
+なんて、
+小洒落た感じにも。
+```
+
+**注意事項**：
+- 画像ファイルは適切なフォルダに配置し、相対パスで指定
+- クレジット表示は`_footer`で必ず記載
+- `brightness`, `contrast`等で視認性を調整
+- 画像比率は`left:40%`, `right:60%`等で指定
+
 ## 5. Git ワークフロー
 
 このプロジェクトは大きなObsidian vaultの一部としてGit管理されています：
