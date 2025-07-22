@@ -32,6 +32,16 @@ h1 {
   margin-bottom: 30px;
 }
 
+/* Title slide (cover page) - center the title */
+section:first-of-type h1 {
+  position: static;
+  text-align: center;
+  top: auto;
+  left: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
 h2 {
   font-size: 36px;
   color: #007bff;
