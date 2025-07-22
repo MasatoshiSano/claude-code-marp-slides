@@ -22,6 +22,9 @@ section::after {
 
 /* Titles */
 h1 {
+  position: absolute;
+  top: 20px;
+  left: 170px;
   font-size: 48px;
   color: #007bff; /* A prominent blue, similar to the Merpay logo blue */
   border-bottom: 2px solid #eeeeee; /* Light grey line below some titles */
@@ -43,15 +46,38 @@ h3 {
 
 /* Bullet Points (ダミーマーケットプレイス pages 5, 6, 7) */
 ul {
-  list-style-type: disc; /* Standard disc for bullet points */
-  padding-left: 25px;
+  list-style: none; /* Remove default bullets */
+  padding-left: 0;
   margin-bottom: 20px;
 }
 
 ul li {
+  position: relative;
   font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  padding-left: 30px;
+}
+
+ul li::before {
+  content: "●"; /* Modern bullet */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #007bff; /* Merpay blue for bullets */
+  font-size: 24px;
+  line-height: 1.4;
+}
+
+/* Nested lists */
+ul ul li::before {
+  content: "○"; /* Hollow bullet for second level */
+  color: #666666;
+}
+
+ul ul ul li::before {
+  content: "■"; /* Square bullet for third level */
+  color: #999999;
 }
 
 /* Numbered Lists (pages 15, 16, 17, 18, 19, 20) */
