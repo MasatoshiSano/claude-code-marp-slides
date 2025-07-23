@@ -104,6 +104,10 @@ _footer: 'Photo by Jefferson Santos on Unsplash'
 
 ---
 
+<!--
+_style: "padding-bottom: 50px;"
+-->
+
 # 目次
 
 1. **カスタムコマンドとは何か？**
