@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: default
+theme: merpay-template
 paginate: true
 backgroundColor: #fff
 style: |
