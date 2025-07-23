@@ -187,15 +187,23 @@ marp 02_Marp/スライド作成手順.md --pptx --output 03_Export/PPTX/スラ�
 
 ### 4.3. エクスポートコマンド
 ```bash
-# 基本的なPPTXエクスポート
+# PPTXエクスポート（基本）
 marp 02_Marp/スライド作成手順.md --pptx --output 03_Export/PPTX/スライド作成手順.pptx
 
-# ローカルファイルを許可する場合
+# PPTXエクスポート（ローカルファイル許可）
 marp 02_Marp/スライド作成手順.md --pptx --output 03_Export/PPTX/スライド作成手順.pptx --allow-local-files
+
+# HTMLエクスポート（必須）
+marp 02_Marp/スライド作成手順.md --html --output 03_Export/HTML/スライド作成手順.html --allow-local-files
 
 # 編集が必要な場合はWeb版Marp Editorを使用
 # https://marpwebeditor.app/
 ```
+
+**エクスポート形式について**:
+- **PPTX**: PowerPoint形式、テキストが画像として埋め込まれる
+- **HTML**: ブラウザで表示可能、編集・共有に便利
+- **必須**: 両方の形式で出力すること
 
 **重要**: PPTXはテキストが画像として埋め込まれます。編集が必要な場合は、Web版Marp Editor（https://marpwebeditor.app/）にMarpファイルの内容をコピー＆ペーストして編集してください。
 
