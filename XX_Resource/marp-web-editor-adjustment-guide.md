@@ -13,9 +13,30 @@
 
 特定のスライドだけを調整したい場合、そのスライドの直後に以下を追加：
 
+**軽度の調整：**
 ```markdown
-<!-- _class: content -->
-<!-- _style: "padding-top: 20px; padding-bottom: 40px;" -->
+<!-- _style: "padding-bottom: 45px;" -->
+
+# スライドタイトル
+```
+
+**中程度の調整（リストが多い場合）：**
+```markdown
+<!-- _style: "padding-bottom: 60px;" -->
+
+# スライドタイトル
+```
+
+**重度の調整（コンテンツが非常に多い場合）：**
+```markdown
+<!-- _style: "padding-bottom: 60px; font-size: 16px;" -->
+
+# スライドタイトル
+```
+
+**超重度の調整（コードブロックや長いリスト）：**
+```markdown
+<!-- _style: "padding-bottom: 70px; font-size: 15px;" -->
 
 # スライドタイトル
 ```
@@ -125,13 +146,239 @@ section.content::after {
 4. 必要に応じて上記の方法で調整
 5. 調整後、再度エクスポート
 
+### 方法5: 組み合わせ調整（最強）
+
+非常にコンテンツが多い場合は、複数の手法を組み合わせ：
+
+```markdown
+<!--
+_style: "
+  padding-bottom: 70px; 
+  font-size: 15px; 
+  line-height: 1.3;
+  padding-left: 50px;
+  padding-right: 40px;
+"
+-->
+
+# スライドタイトル
+```
+
+## 調整のレベル分け
+
+1. **Lv.1（軽度）**: `padding-bottom: 45px;` - 基本的なリスト
+2. **Lv.2（中度）**: `padding-bottom: 60px;` - 多数のリスト項目
+3. **Lv.3（重度）**: `padding-bottom: 60px; font-size: 16px;` - 詳細説明付き
+4. **Lv.4（超重度）**: `padding-bottom: 70px; font-size: 15px;` - コードブロック・長文
+5. **Lv.5（最強）**: 組み合わせ調整 - 超大量コンテンツ
+
 ## よくある質問
 
 **Q: どの方法を最初に試すべき？**
-A: 方法1（個別調整）が最も簡単で影響が少ない
+A: Lv.1から順番に試し、はみ出しが解消されるまで強化
 
 **Q: 全体的に窮屈に見える場合は？**
 A: 方法2（コンテンツ分割）を検討
 
 **Q: プレゼン全体で統一感を保ちたい**
 A: 方法3（スタイル全体調整）を使用
+
+**Q: それでもはみ出す場合は？**
+A: 方法5（組み合わせ調整）で最強の調整を適用
+
+## 方法6: 左右分割レイアウト
+
+内容が非常に多い場合は、左右に分割して表示：
+
+```markdown
+<!--
+_style: "
+  display: flex;
+  flex-direction: row;
+  padding: 30px 40px 60px 40px;
+"
+-->
+
+# スライドタイトル
+
+<div style="flex: 1; padding-right: 20px;">
+
+## 左側コンテンツ
+
+- 項目1
+- 項目2  
+- 項目3
+- 項目4
+
+</div>
+
+<div style="flex: 1; padding-left: 20px;">
+
+## 右側コンテンツ
+
+- 項目5
+- 項目6
+- 項目7  
+- 項目8
+
+</div>
+```
+
+## 方法7: 極限調整（最終手段）
+
+すべての手法を組み合わせた極限調整：
+
+```markdown
+<!--
+_style: "
+  padding: 15px 30px 80px 30px;
+  font-size: 14px;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+"
+-->
+
+# タイトル（上部固定）
+
+<div style="display: flex; flex: 1;">
+<div style="flex: 1; padding-right: 15px; font-size: 13px;">
+
+## 左側
+内容...
+
+</div>
+<div style="flex: 1; padding-left: 15px; font-size: 13px;">
+
+## 右側  
+内容...
+
+</div>
+</div>
+```
+
+## 調整のレベル分け（更新版）
+
+1. **Lv.1（軽度）**: `padding-bottom: 45px;` - 基本的なリスト
+2. **Lv.2（中度）**: `padding-bottom: 60px;` - 多数のリスト項目
+3. **Lv.3（重度）**: `padding-bottom: 60px; font-size: 16px;` - 詳細説明付き
+4. **Lv.4（超重度）**: `padding-bottom: 70px; font-size: 15px;` - コードブロック・長文
+5. **Lv.5（最強）**: 組み合わせ調整 - 超大量コンテンツ
+6. **Lv.6（左右分割）**: 左右分割レイアウト - 構造的解決
+7. **Lv.7（極限）**: 全手法組み合わせ - 最終手段
+
+## フォントサイズ調整パターン
+
+### パターンA: 全体縮小
+```markdown
+<!-- _style: "font-size: 16px; line-height: 1.4;" -->
+```
+
+### パターンB: リストのみ縮小
+```markdown
+<!-- _style: "padding-bottom: 60px;" -->
+<style>
+ul li { font-size: 15px !important; line-height: 1.3 !important; }
+ol li { font-size: 15px !important; line-height: 1.3 !important; }
+</style>
+```
+
+### パターンC: 段階的縮小
+```markdown
+<!--
+_style: "
+  padding-bottom: 70px;
+  font-size: 17px;
+"
+-->
+<style>
+h2 { font-size: 24px !important; margin-bottom: 15px !important; }
+h3 { font-size: 20px !important; margin-bottom: 12px !important; }
+ul li, ol li { 
+  font-size: 14px !important; 
+  line-height: 1.25 !important; 
+  margin-bottom: 8px !important; 
+}
+</style>
+```
+
+## 具体的な問題別解決法
+
+### 問題1: 長いリストがはみ出す
+**解決策**: Lv.2-3 + リスト縮小
+
+```markdown
+<!-- _style: "padding-bottom: 65px;" -->
+<style>
+ul li { font-size: 15px !important; line-height: 1.3 !important; margin-bottom: 8px !important; }
+</style>
+```
+
+### 問題2: コードブロックがはみ出す  
+**解決策**: Lv.4 + コード縮小
+
+```markdown
+<!--
+_style: "
+  padding-bottom: 75px;
+  font-size: 15px;
+"
+-->
+<style>
+pre { font-size: 12px !important; padding: 8px !important; margin: 8px 0 !important; }
+</style>
+```
+
+### 問題3: 複雑な構造がはみ出す
+**解決策**: Lv.6（左右分割）
+
+```markdown
+<!--
+_style: "
+  display: flex;
+  flex-direction: row;
+  padding: 25px 35px 70px 35px;
+  font-size: 15px;
+"
+-->
+```
+
+### 問題4: 何をしてもはみ出す
+**解決策**: Lv.7（極限調整）
+
+```markdown
+<!--
+_style: "
+  padding: 12px 25px 85px 25px;
+  font-size: 13px;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+"
+-->
+<style>
+h1 { font-size: 32px !important; margin-bottom: 15px !important; }
+h2 { font-size: 22px !important; margin-bottom: 12px !important; }
+h3 { font-size: 18px !important; margin-bottom: 10px !important; }
+ul li, ol li { 
+  font-size: 12px !important; 
+  line-height: 1.2 !important; 
+  margin-bottom: 6px !important; 
+}
+pre { font-size: 10px !important; padding: 6px !important; }
+</style>
+```
+
+## トラブルシューティング
+
+**症状**: padding-bottomを増やしても効果がない
+**原因**: コンテンツ量が多すぎる
+**対策**: フォントサイズも同時に縮小
+
+**症状**: 左右分割でも収まらない  
+**原因**: 個別項目が長すぎる
+**対策**: 内容の簡略化 + 極限調整
+
+**症状**: 文字が小さすぎて読めない
+**原因**: 過度な縮小調整
+**対策**: コンテンツ分割を検討（2スライドに分ける）
