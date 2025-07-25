@@ -257,6 +257,77 @@ _style: "
 </div>
 ```
 
+## 左右分割適用の判断基準
+
+### 自動適用基準
+以下の条件のいずれかに該当する場合、左右分割レイアウトを適用：
+
+1. **行数基準**: スライド内のテキスト行数が約15行以上
+2. **リスト基準**: ul要素が3つ以上存在する
+3. **複合基準**: h2が1つでもリスト項目が多数（8項目以上）
+
+### 適用パターン
+
+#### パターン1: 基本左右分割
+```markdown
+<!--
+_style: "
+  display: flex;
+  flex-direction: row;
+  padding: 30px 40px 60px 40px;
+  font-size: 17px;
+"
+-->
+
+# スライドタイトル
+
+<div style="flex: 1; padding-right: 20px;">
+
+## 左側コンテンツ
+- 項目1-4
+
+</div>
+
+<div style="flex: 1; padding-left: 20px;">
+
+## 右側コンテンツ  
+- 項目5-8
+
+</div>
+```
+
+#### パターン2: 単一h2大量リスト用
+```markdown
+<!--
+_style: "
+  display: flex;
+  flex-direction: row;
+  padding: 25px 35px 70px 35px;
+  font-size: 16px;
+"
+-->
+
+# スライドタイトル
+
+<div style="flex: 1; padding-right: 15px;">
+
+- 項目1
+- 項目2
+- 項目3
+- 項目4
+
+</div>
+
+<div style="flex: 1; padding-left: 15px;">
+
+- 項目5
+- 項目6
+- 項目7
+- 項目8
+
+</div>
+```
+
 ## 調整のレベル分け（更新版）
 
 1. **Lv.1（軽度）**: `padding-bottom: 45px;` - 基本的なリスト
@@ -264,7 +335,7 @@ _style: "
 3. **Lv.3（重度）**: `padding-bottom: 60px; font-size: 16px;` - 詳細説明付き
 4. **Lv.4（超重度）**: `padding-bottom: 70px; font-size: 15px;` - コードブロック・長文
 5. **Lv.5（最強）**: 組み合わせ調整 - 超大量コンテンツ
-6. **Lv.6（左右分割）**: 左右分割レイアウト - 構造的解決
+6. **Lv.6（左右分割）**: 左右分割レイアウト - 構造的解決（15行以上 or ul×3以上）
 7. **Lv.7（極限）**: 全手法組み合わせ - 最終手段
 
 ## フォントサイズ調整パターン
