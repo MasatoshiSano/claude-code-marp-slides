@@ -109,7 +109,7 @@ claude-code-marp-slides/
     ```bash
     marp 02_Marp/[ファイル名].md --pptx --output 03_Export/PPTX/[ファイル名].pptx
     ```
--   **編集が必要な場合**: 
+-   **編集が必要な場合**:
     - Web版Marp Editor（https://marpwebeditor.app/）を使用
     - 02_Marpのファイル内容をコピー＆ペーストして編集
     - PowerPointで開いて「名前を付けて保存」でも編集可能化
@@ -137,7 +137,7 @@ claude-code-marp-slides/
     ```
     - 適切な位置でスライド分割（`---`）
     - 1スライド1トピックの原則を適用
-    
+
 -   **02→03の変換**:
     ```bash
     # PPTX出力（03_Export/PPTX直下に出力）
